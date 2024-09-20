@@ -16,24 +16,25 @@ btn.addEventListener('click', function() {
         if (input < randomNum) {
             output.innerHTML = "Number too low, please try again"
             attempt++
-        };
-        if (input > randomNum) {
+        } else if (input > randomNum) {
             output.innerHTML = "Number too high, Please try again"
             attempt++
-        };
-        if (input == randomNum) {
+        } else if (input == randomNum) {
             output.innerHTML = "Congratulation you guess the correct number"
             attempt = 0;
         };
-        if (attempt > 3) {
+        if (attempt >= 3) {
             output.innerHTML = `You've reach your limit, ${randomNum}. was the correct answer. click the reset button to start again`
         };
        
 });
 
+
+
 resetBtn.addEventListener('click', function() {
     attempt = 0;
     output.innerHTML = "Enter a number";
-    let input = document.getElementById("userInput").value;
+    randomNum = Math.floor(Math.random() * maxNum)+ 1;
+    console.log(randomNum)
 });
 
